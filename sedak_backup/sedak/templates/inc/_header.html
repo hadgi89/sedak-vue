@@ -1,0 +1,122 @@
+{% load static %}
+
+
+<!-- [ Header ] start -->
+<header class="pc-header ">
+  <div class="header-wrapper">
+
+    <!-- [ head > LEFT menu ] start -->
+    <div class="form-group w-50 my-auto">
+      <div class="input-group input-group">
+        <input type="text" class="form-control bg-light .bg-light.bg-gradient" placeholder="Search here ...">
+        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+          <i class="material-icons-two-tone">search</i>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- [ head > LEFT menu ] end -->
+
+
+    <!-- [ head > RIGHT menu ] start -->
+    <div class="ml-auto">
+      <ul class="list-unstyled">
+
+        <!-- [ head > SEARCH menu] start -->
+        <li class="dropdown pc-h-item">
+          <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+            <i class="material-icons-two-tone">search</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+            <form class="px-3">
+              <div class="form-group mb-0 d-flex align-items-center">
+                <i data-feather="search"></i>
+                <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+              </div>
+            </form>
+          </div>
+        </li>
+        <!-- [ head > SEARCH menu] end -->
+
+        <!-- [ head > USER menu] start -->
+        <li class="dropdown pc-h-item">
+          
+          {% if request.user.is_authenticated %}
+          <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="{% static 'images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar">
+              <span>
+                <span class="user-name">{{user.name}}&nbsp{{user.surname}}</span>
+                <span class="user-desc">{{user.pk}}&nbsp&nbsp::&nbsp&nbsp{{user.email}}</span>
+              </span>
+          {% else %}
+              <img src="{% static 'images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar">
+              <span>
+                <a class="pc-head-link user-name" href="{% url 'signin' %}">Авторизація</a>
+                <a class="pc-head-link user-name" href="{% url 'signup' %}">Реєстрація</a>
+              </span>
+          </a>
+          {% endif %}
+
+          <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+            <a href="#" class="dropdown-item">
+              <i class="material-icons-two-tone">account_circle</i>
+              <span>My Account</span>
+            </a>
+            <div class="pc-level-menu">
+                <a href="#" class="dropdown-item">
+                  <i class="material-icons-two-tone">list_alt</i>
+                  <span class="float-right"><i data-feather="chevron-right" class="mr-0"></i></span>
+                  <span>Level2.1</span>
+                </a>
+                <div class="dropdown-menu pc-h-dropdown">
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-circle"></i>
+                    <span>My Account</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-circle"></i>
+                    <span>Settings</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-circle"></i>
+                    <span>Support</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-circle"></i>
+                    <span>Lock Screen</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-circle"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </div>
+              <a href="#" class="dropdown-item">
+                <i class="material-icons-two-tone">settings</i>
+                <span>Settings</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="material-icons-two-tone">support</i>
+                <span>Support</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="material-icons-two-tone">https</i>
+                <span>Lock Screen</span>
+              </a>
+              <a href="{% url 'signout' %}" class="dropdown-item">
+                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                <span>Logout</span>
+              </a>
+
+          </div>
+
+        </li>
+        <!-- [ head > USER menu] end -->
+      </ul>
+    </div>
+    <!-- [ head > RIGHT menu ] end -->
+
+    </div>
+</header>
+<!-- [ Header ] end -->

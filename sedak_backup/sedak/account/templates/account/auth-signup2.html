@@ -1,0 +1,30 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{'Реєстрація'}}{% endblock %}
+
+{% block auth %}
+
+<img src="assets/images/logo-dark.svg" alt="" class="img-fluid mb-4">
+<h4 class="mb-3 f-w-400">Реєстрація</h4>
+
+<form action="{% url 'signup' %}" method="post">
+  {% csrf_token %}
+  
+  {% for field in form %}
+    <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        
+        {{ field.errors }}
+        {% comment %} <div class="errors-msg">
+            {{ field.errors }}
+        </div> {% endcomment %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary btn-block mb-4">Зареєструватися</button>
+</form>
+
+
+
+{% endblock %}

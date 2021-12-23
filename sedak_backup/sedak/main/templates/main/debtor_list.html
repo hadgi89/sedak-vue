@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ title }}{% endblock %}
+
+{% block main_content %}
+
+
+<!-- [ sample-page ] start -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>БОРЖНИКИ</h5>
+        </div>
+
+        <div class="d-flex justify-content-start ml-4">
+            <a class="btn btn-primary mt-4" href="{% url 'debtor-create' %}" role="button">
+                <i class="mr-2" data-feather="plus"></i>Додати боржника
+            </a>
+        </div>
+        
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            {% comment %} <th class="wid-10">№</th> {% endcomment %}
+                            <th class="col-sm-1 text-wrap text-center">Ном. №</th>
+                            <th class="col-sm-1">Номер справи</th>
+                            <th class="col-sm-1">Код ЄДРПОУ</th>
+                            <th class="col-sm-3">Найменування</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in debtor_list %}
+                        <tr data-href="#">
+                            {% comment %} <td>{{ item.pk }}</td> {% endcomment %}
+                            <td class="text-center">{{ item.nomenclature_num }}</td>
+                            <td>{{ item.case_num }}</td>
+                            <td>{{ item.kod }}</td>
+                            <td><a href="{{ item.get_absolute_url }}">{{ item.short_name }}</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% include 'inc/_pagination.html' %}
+        </div>
+
+
+    </div>
+</div>
+<!-- [ sample-page ] end -->
+
+
+{% endblock %}

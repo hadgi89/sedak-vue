@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ form.short_name }}{% endblock %}
+
+
+{% block main_content %}
+
+<!-- [ sample-page ] start -->
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>
+                Редагувати запис про
+                <span class='text-primary'>{{ debtor_update.short_name }}</span>
+            </h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-4" method="post" >
+                {% csrf_token %}
+                
+                {{ form.non_field.errors }}
+                <div class="error-msg">
+                    {{ form.kod.errors }}
+                </div>
+                <div class="error-msg">
+                    {{ form.errors }}
+                </div>
+                
+
+                {% comment %} <div class="form-group col-md-6 mt-4">
+                    <label for="" class="form-label">USER:</label>
+                    {{ form.user }}
+                </div>
+                <div class="form-group col-md-6 mt-4">
+                    <label for="" class="form-label">SLUG:</label>
+                    {{ form.slug }}
+                </div> {% endcomment %}
+
+
+                <div class="col-md-7">
+                    <div class="row mb-2 align-items-center">
+                        <label for="" class="col-md-3 col-form-label">Ідентифікаційний код:</label>
+                        <div class="col-md-3">
+                            {{ form.kod }}
+                        </div>
+                        <div class="error-msg">
+                            {{ form.kod.errors }}
+                        </div>
+                    </div>
+                    <div class="row mb-2 align-items-center">
+                        <label for="" class="col-md-3 col-form-label">Номер справи про банкрутство:</label>
+                        <div class="col-md-3">
+                            {{ form.case_num }}
+                        </div>
+                    </div>
+                    <div class="row mb-2 align-items-center">
+                        <label for="" class="col-md-3 col-form-label">Номенклатурний номер:</label>
+                        <div class="col-md-3">
+                            {{ form.nomenclature_num }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 mt-4">
+                    <label for="" class="form-label">Повне найменування:</label>
+                    {{ form.full_name }}
+                </div>
+                <div class="form-group col-md-6 mt-4">
+                    <label for="" class="form-label">Скорочене найменування:</label>
+                    {{ form.short_name }}   
+                </div>
+
+                <div class="form-group mt-4">
+                    <label class="form-label">Місцезнаходження:</label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Країна:</em></label>
+                            {{ form.add_country }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Індекс:</em></label>
+                            {{ form.add_index }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Область:</em></label>
+                            {{ form.add_region }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Район:</em></label>
+                            {{ form.add_district }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>{{ form.add_city_type }}</em></label>
+                            {{ form.add_city }}
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <div class="form-group mb-2">
+                            <label class="form-label"><em>{{ form.add_street_type }}</em></label>
+                            {{ form.add_street }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>будинок:</em></label>
+                            {{ form.add_building }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>корпус:</em></label>
+                            {{ form.add_corps }}
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>офіс:</em></label>
+                            {{ form.add_office }}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Зберегти зміни</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- [ sample-page ] end -->
+
+
+{% endblock %}

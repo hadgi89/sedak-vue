@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ title }}{% endblock %}
+
+{% block main_content %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h5>Вихідна кореспонденція</h5>
+    </div>
+
+    <div class="d-flex justify-content-start ml-4">
+        <a class="btn btn-sm btn-outline-primary rounded-2 mt-4" href="{% url 'outcorr-create' %}" role="button">
+            <i class="mr-2" data-feather="plus"></i>
+            Зареєструвати вихідний лист
+        </a>
+    </div> 
+    
+    <div class="card-body">
+        <table class="table table-sm" >
+            <thead>
+                <tr>
+                    <th class="col-sm-1 text-wrap text-center" style="font-size: 0.8em">Дата</br> реєстрації</th>
+                    <th class="col-sm-1 text-wrap" style="font-size: 0.8em">Реєстраційний</br> номер</th>
+                    <th class="col-sm-2 text-wrap" style="font-size: 0.8em">Кореспондент</th>
+                    <th class="col-sm-1 text-wrap" style="font-size: 0.8em">Тип листа</th>
+                    <th class="col-sm-2 text-wrap" style="font-size: 0.8em">Короткий зміст</th>
+                    <th class="col-sm-2 text-wrap" style="font-size: 0.8em">Боржник</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in outcorr_list %}
+                <tr>
+                    <td class="text-center">{{ item.outcorr_date|date:"d.m.Y" }}</td>
+                    <td><a href="{{ item.get_absolute_url }}">{{ item.outcorr_num }}</a></td>
+                    <td>{{ item.correspondent }}</td>
+                    <td>{{ item.letter_type }}</td>
+                    <td>{{ item.letter_summary }}</td>
+                    <td>{{ item.debtor }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+
+        {% include 'inc/_pagination.html' %}
+    </div>
+</div>
+
+
+{% endblock %}

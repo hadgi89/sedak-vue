@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: вх. {{outcorr_update.outcorr_num}} {% endblock %}
+
+
+{% block main_content %}
+
+<div class="card col-md-6">
+    <div class="card-header">
+        <h5>
+            Інформація про вихідний лист №
+            <span class='text-primary'>{{ outcorr_update.outcorr_num }}</span>
+            від
+            <span class='text-primary'>{{ outcorr_update.outcorr_date|date:"d.m.Y" }}</span>
+        </h5>
+    </div>
+    
+    <div class="card-body ">
+        
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            
+            <div class="error-msg">
+                {{ form.errors }}
+            </div>
+            
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Боржник:</div>
+                <div class="col-sm-9">{{ form.debtor }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Дата реєстрації:</div>
+                <div class="col-sm-3">{{ form.outcorr_date }}</div>
+                <div class="col-sm-3">Реєстраційний номер:</div>
+                <div class="col-sm-3">{{ form.outcorr_num }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Кореспондент:</div>
+                <div class="col-sm-9">{{ form.correspondent }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Тип листа:</div>
+                <div class="col-sm-9">{{ form.letter_type }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Короткий зміст листа:</div>
+                <div class="col-sm-9">{{ form.letter_summary }}</div>
+            </div>
+            
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Сума чека:</div>
+                <div class="col-sm-3">{{ form.check_amount }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Сканкопія чека:</div>
+                <div class="col-sm-9">{{ form.check_scan }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Сканкопія листа:</div>
+                <div class="col-sm-9">{{ form.letter_scan }}</div>
+            </div>
+            
+            <a class="btn btn-sm btn-outline-primary btn-block rounded-1 mt-5" href="{% url 'outcorr-list' %}" role="button">
+                <i class="mr-2" data-feather="corner-left-up"></i>
+                Повернутись
+            </a>
+            <button type="submit" class="btn btn-sm btn-outline-primary btn-block rounded-1 mt-5">
+                <i class="mr-2" data-feather="save"></i>
+                Зберегти зміни
+            </button>
+            <a class="btn btn-sm btn-outline-danger btn-block rounded-1 mt-5" href="{% url 'outcorr-delete' outcorr_update.slug %}" role="button">
+                <i class="mr-2" data-feather="trash-2"></i>
+                Видалити
+            </a>
+        </form>
+        
+    </div>
+</div>
+
+
+{% endblock %}

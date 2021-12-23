@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ title }}{% endblock %}
+
+
+{% block main_content %}
+
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header" >
+            <h5>Кореспонденти</h5>
+        </div>
+        
+        <div class="d-flex justify-content-start ml-4">
+            <a class="btn btn-sm btn-outline-primary mt-4 rounded-2" href="{% url 'correspondent-create' %}" role="button">
+                <i class="mr-2" data-feather="plus"></i>Додати кореспондента
+            </a>
+        </div>
+        
+        <div class="card-body">
+            <div class="col-md-12">
+                <table class="table table-sm" >
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1 text-wrap" style="font-size: 0.8em">Код ЄДРПОУ</th>
+                            <th class="col-sm-4 text-wrap" style="font-size: 0.8em">Найменування</th>
+                            <th class="col-sm-1 text-wrap" style="font-size: 0.8em">Індекс</th>
+                            <th class="col-sm-2 text-wrap" style="font-size: 0.8em">Область</th>
+                            <th class="col-sm-2 text-wrap" style="font-size: 0.8em">Район</th>
+                            <th class="col-sm-2 text-wrap" style="font-size: 0.8em">Населений пункт</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in correspondent_list %}
+                        <tr>
+                            <td>{{ item.kod }}</td>
+                            
+                            <td class="text-wrap">
+                                <a href="{{ item.get_absolute_url }}">{{ item.short_name }}</a>
+                            </td>
+                            
+                            {% comment %} <td class="text-wrap">{{ item.short_name }}</td> {% endcomment %}
+                            <td>{{ item.add_index }}</td>
+                            <td>{{ item.add_region }}</td>
+                            <td>{{ item.add_district }}</td>
+                            <td>{{ item.add_city }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% include 'inc/_pagination.html' %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: Видалення запису{% endblock %}
+
+
+{% block main_content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>
+                Видалення запису про вхідний лист №
+                <span class='text-primary'>{{ incorr_delete.incorr_num }}</span>
+                від
+                <span class='text-primary'>{{ incorr_delete.incorr_date|date:"d.m.Y" }}</span>
+            </h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-4" method="post" >
+                {% csrf_token %}
+                
+                <div class="alert alert-danger" role="alert">
+                    Ви дійсно хочете видалити запис про вхідний лист&nbsp<a href="#" class="alert-link">№&nbsp{{incorr_delete.incorr_num}}&nbspвід&nbsp{{ incorr_delete.incorr_date|date:"d.m.Y" }}</a>&nbsp?
+                </div>
+                
+                <a class="btn btn-sm btn-outline-primary btn-block mt-3 ml-2 rounded-1" href="{% url 'incorr-update' incorr_delete.slug %}" role="button">
+                    <i class="mr-2" data-feather="corner-left-up"></i>
+                    Повернутись
+                </a>
+                <button type="submit" class="btn btn-sm btn-outline-danger btn-block mt-3 rounded-1">
+                    <i class="mr-2" data-feather="trash-2"></i>
+                    Видалити запис
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ debtor_detail.short_name }}{% endblock %}
+
+
+{% block main_content %}
+
+<!-- [ sample-page ] start -->
+<div class="col-md-12">
+    <div class="card">
+        
+        <div class="card-header">
+            <h5>Інформація про 
+                <span class='text-primary'>{{ debtor_detail.short_name }}</span>
+            </h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-2" method="post" >
+                {% csrf_token %}
+                
+                {{ form.non_field.errors }}
+                <div class="error-msg">
+                    {{ form.kod.errors }}
+                </div>
+                <div class="error-msg">
+                    {{ form.errors }}
+                </div>
+
+                <div class="col-md-7">
+                    <div class="row mb-2 align-items-center">
+                        <label for="" class="col-md-3 col-form-label">Ідентифікаційний код:</label>
+                        <div class="col-md-3">
+                            <span class='form-control bg-light'>{{ debtor_detail.kod }}</span>
+                        </div>
+                    </div>
+                    <div class="row mb-2 align-items-center">
+                        <label for="" class="col-md-3 col-form-label">Номер справи про банкрутство:</label>
+                        <div class="col-md-3">
+                            <span class='form-control bg-light'>{{ debtor_detail.case_num }}</span>
+                        </div>
+                    </div>
+                    <div class="row mb-2 align-items-center">
+                        <label for="" class="col-md-3 col-form-label">Номенклатурний номер:</label>
+                        <div class="col-md-3">
+                            <span class='form-control bg-light'>{{ debtor_detail.nomenclature_num }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 mt-4">
+                    <label for="" class="form-label">Повне найменування:</label>
+                    <span class='form-control bg-light'>{{ debtor_detail.full_name }}</span>
+                </div>
+                <div class="form-group col-md-6 mt-4">
+                    <label for="" class="form-label">Скорочене найменування:</label>
+                    <span class='form-control bg-light'>{{ debtor_detail.short_name }}</span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <label class="form-label">Місцезнаходження:</label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Країна</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_country }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Індекс</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_index }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Область</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_region }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>Район</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_district }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>{{ debtor_detail.add_city_type }}</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_city }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <div class="form-group mb-2">
+                            <label class="form-label"><em>{{ debtor_detail.add_street_type }}</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_street }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>будинок</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_building }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>корпус</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_corps }}</span>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="" class="form-label"><em>офіс</em></label>
+                            <span class='form-control form-control-sm bg-light'>{{ debtor_detail.add_office }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row gy-2 gx-3 align-items-center mt-3">
+                    <div class="col-auto">
+                        <span class="form-label">Дата створення:</span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-label text-primary">{{ debtor_detail.create_time|date:"d.m.Y H:i:s" }}</span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-label">Дата внесення змін:</span>
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-label text-primary">{{ debtor_detail.update_time|date:"d.m.Y H:i:s" }}</span>
+                    </div>
+                </div>
+
+                <a class="btn btn-primary mt-4" href="{% url 'debtor-update' debtor_detail.slug %}" role="button">
+                    <i class="mr-2" data-feather="edit"></i>
+                    Редагувати
+                </a>
+            </form>
+            
+        
+        </div>
+    </div>
+</div>
+<!-- [ sample-page ] end -->
+
+
+{% endblock %}

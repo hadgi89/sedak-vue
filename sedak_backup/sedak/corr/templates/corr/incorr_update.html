@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: вх. {{incorr_update.incorr_num}} {% endblock %}
+
+
+{% block main_content %}
+
+<div class="card col-md-6">
+    <div class="card-header">
+        <h5>
+            Інформація про вхідний лист №
+            <span class='text-primary'>{{ incorr_update.incorr_num }}</span>
+            від
+            <span class='text-primary'>{{ incorr_update.incorr_date|date:"d.m.Y" }}</span>
+        </h5>
+    </div>
+    
+    <div class="card-body ">
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="error-msg">
+                {{ form.errors }}
+            </div>
+            
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Боржник:</div>
+                <div class="col-sm-9">{{ form.debtor }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Дата реєстрації:</div>
+                <div class="col-sm-3">{{ form.incorr_date }}</div>
+                <div class="col-sm-3">Реєстраційний номер:</div>
+                <div class="col-sm-3">{{ form.incorr_num }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Кореспондент:</div>
+                <div class="col-sm-9">{{ form.correspondent }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Дата та номер вхідного листа:</div>
+                <div class="col-sm-9">{{ form.corr_datenum }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Тип листа:</div>
+                <div class="col-sm-3">{{ form.letter_type }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Відмітка про виконання:</div>
+                <div class="col-sm-3">{{ form.executed }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Сканкопія:</div>
+                <div class="col-sm-3">{{ form.letter_scan }}</div>
+            </div>
+            
+            {% comment %}             
+            <table class="table table-sm table-borderless">
+                <tbody>
+                    <tr>
+                        <td class='col-sm-2'>Дата реєстрації:</td>
+                        <td>{{ form.incorr_date }}</td>
+                    </tr>
+                    <tr>
+                        <td>Реєстраційний номер:</td>
+                        <td>{{ form.incorr_num }}</td>
+                    </tr>
+                    <tr>
+                        <td>Кореспондент:</td>
+                        <td>{{ form.correspondent }}</td>
+                    </tr>
+                    <tr>
+                        <td>Дата та номер вхідного листа:</td>
+                        <td>{{ form.corr_datenum }}</td>
+                    </tr>
+                    <tr>
+                        <td>Боржник:</td>
+                        <td>{{ form.debtor }}</td>
+                    </tr>
+                    <tr>
+                        <td>Тип листа:</td>
+                        <td>{{ form.letter_type }}</td>
+                    </tr>
+                    <tr>
+                        <td>Відмітка про виконання:</td>
+                        <td>{{ form.executed }}</td>
+                    </tr>
+                    <tr>
+                        <td>Сканкопія:</td>
+                        <td>{{ form.letter_scan }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endcomment %}
+            
+            <a class="btn btn-sm btn-outline-primary btn-block rounded-1 mt-5" href="{% url 'incorr-list' %}" role="button">
+                <i class="mr-2" data-feather="corner-left-up"></i>
+                Повернутись
+            </a>
+            <button type="submit" class="btn btn-sm btn-outline-primary btn-block rounded-1 mt-5">
+                <i class="mr-2" data-feather="save"></i>
+                Зберегти зміни
+            </button>
+            <a class="btn btn-sm btn-outline-danger btn-block rounded-1 mt-5" href="{% url 'incorr-delete' incorr_update.slug %}" role="button">
+                <i class="mr-2" data-feather="trash-2"></i>
+                Видалити
+            </a>
+        </form>
+        
+    </div>
+</div>
+
+
+{% endblock %}

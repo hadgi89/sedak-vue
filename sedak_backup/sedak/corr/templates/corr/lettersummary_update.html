@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ lettersummary_update.title }}{% endblock %}
+
+
+{% block main_content %}
+
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">
+            <h5>
+                Детальна інформація про
+                <span class='text-primary'>{{ lettersummary_update.title }}</span>
+            </h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-4" method="post" >
+                {% csrf_token %}
+                
+                {{ form.non_field.errors }}
+                <div class="error-msg">
+                    {{ form.errors }}
+                </div>
+                
+                
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                        <tr>
+                            <td>{{ form.title }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary btn-block rounded-1 mt-3" href="{% url 'lettersummary-list' %}" role="button">
+                                    <i class="mr-2" data-feather="corner-left-up"></i>
+                                    Повернутись
+                                </a>
+                                <button type="submit" class="btn btn-sm btn-outline-primary btn-block rounded-1 mt-3">
+                                    <i class="mr-2" data-feather="save"></i>
+                                    Зберегти зміни
+                                </button>
+                                <a class="btn btn-sm btn-outline-danger btn-block rounded-1 mt-3" href="{% url 'lettersummary-delete' lettersummary_update.slug %}" role="button">
+                                    <i class="mr-2" data-feather="trash-2"></i>
+                                    Видалити
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

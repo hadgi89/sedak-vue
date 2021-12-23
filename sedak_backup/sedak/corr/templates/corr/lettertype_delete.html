@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: Видалення запису{% endblock %}
+
+
+{% block main_content %}
+
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header">
+            <h5>
+                Видалення запису про
+                <span class='text-danger'>{{ lettertype_delete.title }}</span>
+            </h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-4" method="post" >
+                {% csrf_token %}
+                
+                <div class="alert alert-danger" role="alert">
+                    Ви дійсно хочете видалити запис про <a href="#" class="alert-link">{{lettertype_delete.title}}</a> ?
+                </div>
+                
+                <a class="btn btn-sm btn-outline-primary btn-block mt-3 rounded-1" href="{% url 'lettertype-update' lettertype_delete.slug %}" role="button">
+                    <i class="mr-2" data-feather="corner-left-up"></i>
+                    Повернутись
+                </a>
+                <button type="submit" class="btn btn-sm btn-outline-danger btn-block mt-3 rounded-1">
+                    <i class="mr-2" data-feather="trash-2"></i>
+                    Видалити запис
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ title }}{% endblock %}
+
+
+{% block main_content %}
+
+<div class="row">
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Кореспонденти</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm" >
+                    <thead>
+                        <tr>
+                            <th style="font-size: 0.8em">Найменування</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in сorrespondent %}
+                        <tr>
+                            <td>{{ item.short_name }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="btn btn-sm btn-outline-primary mt-4 rounded-1" href="{% url 'сorrespondent-list' %}" role="button">
+                    <i class="mr-2" data-feather="eye"></i>Детальніше
+                </a>
+                <a class="btn btn-sm btn-outline-primary mt-4 rounded-1" href="{% url 'correspondent-create' %}" role="button">
+                    <i class="mr-2" data-feather="plus"></i>Додати
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    {% comment %}     
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Кореспонденти</h5>
+            </div>
+            
+            <div class="card-body">
+                <table class="table table-sm" >
+                    <thead>
+                        <tr>
+                            <th style="font-size: 0.8em">Найменування</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in correspondents %}
+                        <tr>
+                            <td>{{ item.short_name }}</td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+                <a class="btn btn-primary mt-4" href="{% url 'correspondent-list' %}" role="button">
+                    Детальніше
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endcomment %}
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Тип кореспонденції</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm" >
+                    <thead>
+                        <tr>
+                            <th style="font-size: 0.8em">Найменування</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in letter_type %}
+                        <tr>
+                            <td>{{ item.title }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="btn btn-sm btn-outline-primary mt-4 rounded-1" href="{% url 'lettertype-list' %}" role="button">
+                    <i class="mr-2" data-feather="eye"></i>Детальніше
+                </a>
+                <a class="btn btn-sm btn-outline-primary mt-4 rounded-1" href="{% url 'lettertype-create' %}" role="button">
+                    <i class="mr-2" data-feather="plus"></i>Додати
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Короткий зміст кореспонденції</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm" >
+                    <thead>
+                        <tr>
+                            <th style="font-size: 0.8em">Найменування</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in letter_summary %}
+                        <tr>
+                            <td>{{ item.title }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="btn btn-sm btn-outline-primary mt-4 rounded-1" href="{% url 'lettersummary-list' %}" role="button">
+                    <i class="mr-2" data-feather="eye"></i>
+                    Детальніше
+                </a>
+                <a class="btn btn-sm btn-outline-primary mt-4 rounded-1" href="{% url 'lettersummary-create' %}" role="button">
+                    <i class="mr-2" data-feather="plus"></i>
+                    Додати
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{'Регистрация'}}{% endblock %}
+
+{% block auth %}
+
+<img src="assets/images/logo-dark.svg" alt="" class="img-fluid mb-4">
+<h4 class="mb-3 f-w-400">Регистрация</h4>
+
+<form action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    
+    <!-- ошибки валидации, которые не связаны с видимыми полями  -->
+    {{ form.non_field.errors }} 
+    
+    <div class="input-group mb-2  ">
+        <span class="input-group-text"><i data-feather="mail"></i></span>
+        {{ form.email }}
+    </div>
+    <!-- Вывод ошибки валидации -->
+    <div class="error-msg">
+        {{ form.email.errors }}
+    </div>
+
+
+    <div class="input-group mb-2">
+        <span class="input-group-text"><i data-feather="lock"></i></span>
+        {{ form.password1 }}
+    </div>
+    <!-- Вывод ошибки валидации -->
+    <div class="error-msg">
+        {{ form.password1.errors }}
+    </div>
+
+
+    <div class="input-group mb-2">
+        <span class="input-group-text"><i data-feather="lock"></i></span>
+        {{ form.password2 }}
+    </div>
+    <!-- Вывод ошибки валидации -->
+    <div class="error-msg">
+        {{ form.password2.errors }}
+    </div>
+
+
+    <!-- <div class="form-group text-left mt-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Send me the <a href="#!"> Newsletter</a> weekly.
+        </label>
+      </div> 
+    </div> -->
+    
+    <button type="submit" class="btn btn-primary btn-block mb-4">Зарегистрироваться</button>
+    <p class="mb-2">Уже есть аккаунт? <a href="{% url 'signin' %}" class="f-w-400">Авторизация</a></p>
+</form>
+
+
+
+{% endblock %}

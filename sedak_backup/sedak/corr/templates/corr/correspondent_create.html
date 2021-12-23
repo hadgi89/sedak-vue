@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: {{ form.short_name }}{% endblock %}
+
+
+{% block main_content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Додати КОРЕСПОНДЕНТА</h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-4" method="post" >
+                {% csrf_token %}
+                
+                {{ form.non_field.errors }}
+                <div class="error-msg">
+                    {{ form.errors }}
+                </div>
+                
+                
+                <div class="col-md-6">
+                    <table class="table table-sm table-borderless">
+                        <tbody>
+                            <tr>
+                                <td class='wid-100'>Ідентифікаційний код:</td>
+                                <td>{{ form.kod }}</td>
+                            </tr>
+                            <tr>
+                                <td>Повне найменування:</td>
+                                <td>{{ form.full_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Скорочене найменування:</td>
+                                <td>{{ form.short_name }}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>Місцезнаходження:</td>
+                                </tr>
+                                <tr>
+                                    <td class='wid-100'>Країна:</td>
+                                    <td>{{ form.add_country }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Індекс:</td>
+                                    <td>{{ form.add_index }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Область:</td>
+                                    <td>{{ form.add_region }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Район:</td>
+                                    <td>{{ form.add_district }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.add_city_type }}</td>
+                                    <td>{{ form.add_city }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-3">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>&nbsp</td>
+                                </tr>
+                                <tr>
+                                    <td class='wid-100'>{{ form.add_street_type }}</td>
+                                    <td>{{ form.add_street }}</td>
+                                </tr>
+                                <tr>
+                                    <td>будинок:</td>
+                                    <td>{{ form.add_building }}</td>
+                                </tr>
+                                <tr>
+                                    <td>корпус:</td>
+                                    <td>{{ form.add_corps }}</td>
+                                </tr>
+                                <tr>
+                                    <td>офіс:</td>
+                                    <td>{{ form.add_office }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <a class="btn btn-sm btn-outline-primary btn-block mt-3 ml-2 rounded-1" href="{% url 'сorrespondent-list' %}" role="button">
+                    <i class="mr-2" data-feather="corner-left-up"></i>Повернутись
+                </a>
+                <button type="submit" class="btn btn-sm btn-outline-primary btn-block mt-3 rounded-1">
+                    <i class="mr-2" data-feather="plus"></i>Створити запис
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

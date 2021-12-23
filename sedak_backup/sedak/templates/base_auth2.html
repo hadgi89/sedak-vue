@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <title>{% block title %}СЕДАК{% endblock %}</title>
+  {% include 'inc/_head.html' %}
+
+</head>
+
+<body>
+  
+  <div class="auth-wrapper">
+    <div class="auth-content">
+      <div class="card">
+        <div class="row align-items-center text-center">
+          <div class="col-md-12">
+            <div class="card-body">
+              
+              {% if messages %}
+                  {% for message in messages %}
+                      {% if message.tags == 'error' %}
+                          <div class="alert alert-danger" role="alert">
+                              {{ message }}
+                          </div>
+                      {% else %}
+                          <div class="alert alert-{{ message.tags }}" role="alert">
+                              {{ message }}
+                          </div>
+                      {% endif %}
+                  {% endfor %}
+              {% endif %}
+              
+              {% block auth %}{% endblock %} 
+            
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% include 'inc/_footer.html' %}
+</body>
+
+</html>

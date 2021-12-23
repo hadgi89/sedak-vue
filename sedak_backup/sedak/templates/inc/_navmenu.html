@@ -1,0 +1,81 @@
+{% load static %}
+
+
+<!-- [ Navigation menu ] start -->
+
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    
+    
+    <div class="m-header">
+      <a href="{% url 'home' %}" class="b-brand">
+        <!-- ========   change your logo hear   ============ -->
+        <img src="{% static 'images/logo.svg' %}" alt="" class="logo logo-lg">
+        <img src="{% static 'images/logo-sm.svg' %}" alt="" class="logo logo-sm">
+      </a>
+    </div>
+    
+    
+    <div class="navbar-content">
+      <ul class="pc-navbar">
+
+        <li class="pc-item pc-caption">
+          <label>Навігація</label>
+          <span>UI Components</span>
+        </li>
+        
+        
+        <!-- [ Sidebar > "Боржники" ] start -->
+        <li class="pc-item">
+          <a href="{% url 'debtor-list' %}" class="pc-link">
+            <span class="pc-micon">
+              <i class="material-icons-two-tone">business_center</i>
+            </span>
+            <span class="pc-mtext">Боржники</span>
+          </a>
+        </li>
+        <!-- [ Sidebar > "Боржники" ] end -->
+        
+
+        <!-- [ Sidebar > "Проекти" ] start -->
+        <li class="pc-item">
+          <a href="#" class="pc-link">
+            <span class="pc-micon">
+              <i class="material-icons-two-tone">business_center</i>
+            </span>
+            <span class="pc-mtext">Проекти</span>
+          </a>
+        </li>
+        <!-- [ Sidebar > "Проекти" ] end -->
+        
+
+        <li class="pc-item pc-caption">
+          <label>Діловодство</label>
+          <span>UI Components</span>
+        </li>
+        
+        <!-- [ Sidebar > "Кореспонденція" ] start -->
+        <li class="pc-item pc-hasmenu">
+          <a href="#" class="pc-link ">
+            <span class="pc-micon">
+              <i class="material-icons-two-tone">mail</i>
+            </span>
+            <span class="pc-mtext">Кореспонденція</span>
+            <span class="pc-arrow">
+              <i data-feather="chevron-right"></i>
+            </span>
+          </a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="{% url 'incorr-list' %}">&nbspВхідна</a></li>
+            <li class="pc-item"><a class="pc-link" href="{% url 'outcorr-list' %}">&nbspВихідна</a></li>
+            <li class="pc-item"><a class="pc-link" href="{% url 'dbcorr-page' %}">&nbspТаблиці</a></li>
+          </ul>
+        </li>
+        <!-- [ Sidebar > "Кореспонденція" ] end -->
+          
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- [ Navigation menu ] end -->

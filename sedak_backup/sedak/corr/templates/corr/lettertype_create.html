@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: Додати "Тип кореспонденції"{% endblock %}
+
+
+{% block main_content %}
+
+<div class="col-sm-3">
+    <div class="card">
+        <div class="card-header">
+            <h5>Додати "Тип кореспонденції"</h5>
+        </div>
+        
+        <div class="card-body">
+            <form class="mt-4" method="post" >
+                {% csrf_token %}
+                
+                {{ form.non_field.errors }}
+                <div class="error-msg">
+                    {{ form.errors }}
+                </div>
+                
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                        <tr>
+                            <td>{{ form.title }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary btn-block mt-3 rounded-1" href="{% url 'lettertype-list' %}" role="button">
+                                    <i class="mr-2" data-feather="corner-left-up"></i>
+                                    Повернутись
+                                </a>
+                                <button type="submit" class="btn btn-sm btn-outline-primary btn-block mt-3 rounded-1">
+                                    <i class="mr-2" data-feather="plus"></i>
+                                    Створити запис
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

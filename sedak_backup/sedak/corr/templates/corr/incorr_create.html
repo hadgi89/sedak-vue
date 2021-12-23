@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} :: Реєстрація {% endblock %}
+
+
+{% block main_content %}
+
+<div class="card col-md-6">
+    <div class="card-header">
+        <h5>Реєстрація вхіднї кореспонденції</h5>
+    </div>
+    
+    <div class="card-body ">
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            
+            <div class="error-msg">
+                {{ form.errors }}
+            </div>
+            
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Боржник:</div>
+                <div class="col-sm-9">{{ form.debtor }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Дата реєстрації:</div>
+                <div class="col-sm-3">{{ form.incorr_date }}</div>
+                <div class="col-sm-3">Реєстраційний номер:</div>
+                <div class="col-sm-3">{{ form.incorr_num }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Кореспондент:</div>
+                <div class="col-sm-9">{{ form.correspondent }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Дата та номер вхідного листа:</div>
+                <div class="col-sm-9">{{ form.corr_datenum }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Тип листа:</div>
+                <div class="col-sm-3">{{ form.letter_type }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Відмітка про виконання:</div>
+                <div class="col-sm-3">{{ form.executed }}</div>
+            </div>
+            <div class="row align-items-center mt-3">
+                <div class="col-sm-3">Сканкопія:</div>
+                <div class="col-sm-3">{{ form.letter_scan }}</div>
+            </div>
+            
+            
+            <a class="btn btn-sm btn-outline-primary btn-block mt-5 rounded-1" href="{% url 'incorr-list' %}" role="button">
+                <i class="mr-2" data-feather="corner-left-up"></i>Повернутись
+            </a>
+            <button type="submit" class="btn btn-sm btn-outline-primary btn-block mt-5 rounded-1">
+                <i class="mr-2" data-feather="plus"></i>Зареєструвати
+            </button>
+
+        </form>
+        
+        
+    </div>
+</div>
+
+
+{% endblock %}
