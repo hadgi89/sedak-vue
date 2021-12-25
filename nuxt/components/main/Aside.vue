@@ -1,11 +1,11 @@
 <template>
-  <div class="aside-wrapper">
-    
+  <div>
     <el-menu
       class="aside"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
+      
       
       <el-menu-item index="1">
         <i class="el-icon-s-management"></i>
@@ -33,7 +33,6 @@
         <i class="el-icon-s-tools"></i>
         <span>Разное</span>
       </el-menu-item>
-      
     </el-menu>
   </div>
 </template>
@@ -45,11 +44,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  .aside-wrapper {
+
+<style lang="css" scoped>
+  
+  .el-menu {
     height: 100vh;
+    border: 0;
   }
-  .aside {
-    height: 100%;
-  }
+  
 </style>

@@ -29,10 +29,13 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="css" scoped>
   
-  el-aside {
-    /* height: 100%; */
+ .el-aside {
     width: 240px;
+  }
+
+  .el-header {
+    min-height: 70px;
   }
 </style>
