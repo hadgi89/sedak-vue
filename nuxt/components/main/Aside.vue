@@ -2,8 +2,8 @@
   <div>
     <el-menu
       class="aside"
-      background-color="#545c64"
-      text-color="#fff"
+      background-color="#343a40"
+      text-color="#c2c7d0"
       active-text-color="#ffd04b">
       
       
@@ -50,6 +50,7 @@ export default {
   .el-menu {
     height: 100vh;
     border: 0;
+    background-color: #1c232f;
   }
   
 </style>

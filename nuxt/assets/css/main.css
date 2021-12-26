@@ -9,5 +9,7 @@ html, body {
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  background-color: #F56C6C;
+  /* background-color: #F56C6C; */
+  background-color: #F2F6FC;
+  
 }

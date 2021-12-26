@@ -33,9 +33,11 @@ export default {
   
  .el-aside {
     width: 240px;
+    
   }
 
   .el-header {
     min-height: 70px;
+    padding: 0;
   }
 </style>

@@ -1,23 +1,5 @@
 <template>
   <div class="header-wrapper">
-    <!-- <el-dropdown trigger="click">
-      <el-button type="primary">
-        <div class="user-wrapper">
-          <div>
-            <div>Joseph William</div>
-            <div>Administrator</div>
-          </div>
-          <el-avatar :size="50" src="img/user/avatar-2.jpg"></el-avatar>
-        </div>
-      </el-button>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>Action 1</el-dropdown-item>
-        <el-dropdown-item>Action 2</el-dropdown-item>
-        <el-dropdown-item>Action 3</el-dropdown-item>
-        <el-dropdown-item>Action 4</el-dropdown-item>
-        <el-dropdown-item>Action 5</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown> -->
 
     <el-dropdown trigger="click">
       <span class="el-dropdown-link">
@@ -28,11 +10,26 @@
         </span>
       </span>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item class="dropdown-item">My Account</el-dropdown-item>
-        <el-dropdown-item class="dropdown-item">Settings</el-dropdown-item>
-        <el-dropdown-item>Support</el-dropdown-item>
-        <el-dropdown-item>Lock Screen</el-dropdown-item>
-        <el-dropdown-item>Logout</el-dropdown-item>
+        <el-dropdown-item class="dropdown-item">
+          <i class="el-icon-user"></i>
+          My Account
+        </el-dropdown-item>
+        <el-dropdown-item class="dropdown-item">
+          <i class="el-icon-setting"></i>
+          Settings
+        </el-dropdown-item>
+        <el-dropdown-item class="dropdown-item">
+          <i class="el-icon-coin"></i>
+          Support
+        </el-dropdown-item>
+        <el-dropdown-item class="dropdown-item">
+          <i class="el-icon-monitor"></i>
+          Lock Screen
+        </el-dropdown-item>
+        <el-dropdown-item class="dropdown-item">
+          <i class="el-icon-notebook-2"></i>
+          Logout
+        </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
 
