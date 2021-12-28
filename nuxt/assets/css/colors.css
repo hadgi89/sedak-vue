@@ -1,0 +1,47 @@
+aside {
+  /* Cool Gray 800 https://tailwindcolor.com */
+  background-color: #1F2937;
+  
+  /* Cool Gray 400 https://tailwindcolor.com */
+  color: #9CA3AF;
+
+  /* Cool Gray 200 https://tailwindcolor.com */
+  /* active-text-color */
+  color: #E5E7EB;
+}
+
+
+header .user-menu {
+  
+  /* 
+  Blue Grey 600 
+  https://materialui.co/colors/ 
+  */ 
+  color: #546E7A;
+  
+  /* 
+  ### user-Desc ###
+  Blue Grey 300 
+  https://materialui.co/colors/ 
+  */
+  color: #90A4AE;
+
+
+  /* ########################## */
+  /* ### Active-Focus-Hover ### */
+  
+  /* 
+  Deep Purple 400/300
+  https://materialui.co/colors/ 
+  */
+  color: #7E57C2; 
+  /* color: #9575CD;  */
+
+  /* 
+  Indigo 50 
+  https://materialui.co/colors/ 
+  */
+  background-color: #E8EAF6;
+
+
+}

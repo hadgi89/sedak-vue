@@ -11,23 +11,28 @@
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item class="dropdown-item">
-          <i class="el-icon-user"></i>
+          <!-- <i class="el-icon-user"></i> -->
+          <span class="material-icons-two-tone">account_circle</span>
           My Account
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
-          <i class="el-icon-setting"></i>
+          <!-- <i class="el-icon-setting"></i> -->
+          <span class="material-icons-two-tone">settings</span>
           Settings
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
-          <i class="el-icon-coin"></i>
+          <!-- <i class="el-icon-coin"></i> -->
+          <span class="material-icons-two-tone">support</span>
           Support
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
-          <i class="el-icon-monitor"></i>
+          <!-- <i class="el-icon-monitor"></i> -->
+          <span class="material-icons-two-tone">lock</span>
           Lock Screen
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
-          <i class="el-icon-notebook-2"></i>
+          <!-- <i class="el-icon-notebook-2"></i> -->
+          <span class="material-icons-two-tone">chrome_reader_mode</span>
           Logout
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -73,11 +78,11 @@
     line-height: 1;
     font-size: 12px;
     font-weight: 400;
-    color: #525b69b3;
+    color: #90A4AE;
   }
 
   .el-dropdown-link {
-    color: #525b69;
+    color: #546E7A;
     display: inline-flex;
     align-items: center;
     padding: 0.60rem 0.9rem;
@@ -92,8 +97,8 @@
   .el-dropdown-link:focus, 
   .el-dropdown-link:hover {
     text-decoration: none;
-    color: #7267EF;
-    background: #e3e1fc;
+    color: #7E57C2; 
+    background: #E8EAF6;
     cursor: pointer;
   }
 
@@ -118,9 +123,9 @@
   .dropdown-item:active,
   .dropdown-item:hover, 
   .dropdown-item:focus {
-    color: #7267ef;
+    color: #7E57C2;
     text-decoration: none;
-    background-color: #e3e1fc;
+    background-color: #E8EAF6;
 }
 
 

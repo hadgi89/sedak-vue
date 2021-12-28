@@ -1,11 +1,6 @@
 <template>
   <div>
-    <el-menu
-      class="aside"
-      background-color="#343a40"
-      text-color="#c2c7d0"
-      active-text-color="#ffd04b">
-      
+    <el-menu class="aside" background-color="#1F2937" text-color="#9CA3AF" active-text-color="#E5E7EB">
       
       <el-menu-item index="1">
         <i class="el-icon-s-management"></i>
@@ -50,7 +45,6 @@ export default {
   .el-menu {
     height: 100vh;
     border: 0;
-    background-color: #1c232f;
   }
   
 </style>
