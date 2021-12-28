@@ -12,27 +12,27 @@
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item class="dropdown-item">
           <!-- <i class="el-icon-user"></i> -->
-          <span class="material-icons-two-tone">account_circle</span>
+          <i class="material-icons-two-tone">account_circle</i>
           My Account
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
           <!-- <i class="el-icon-setting"></i> -->
-          <span class="material-icons-two-tone">settings</span>
+          <i class="material-icons-two-tone">settings</i>
           Settings
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
           <!-- <i class="el-icon-coin"></i> -->
-          <span class="material-icons-two-tone">support</span>
-          Support
+          <i class="material-icons-two-tone">support</i>
+          <span>Support</span>
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
           <!-- <i class="el-icon-monitor"></i> -->
-          <span class="material-icons-two-tone">lock</span>
-          Lock Screen
+          <i class="material-icons-two-tone">lock</i>
+          Lock 
         </el-dropdown-item>
         <el-dropdown-item class="dropdown-item">
           <!-- <i class="el-icon-notebook-2"></i> -->
-          <span class="material-icons-two-tone">chrome_reader_mode</span>
+          <i class="material-icons-two-tone">chrome_reader_mode</i>
           Logout
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -106,17 +106,25 @@
     width: 150px;
   }
 
-  .dropdown-item {
+  .el-dropdown-item {
     display: block;
+    flex-direction: row;
+    align-items: center ;
     /* width: 100%; */
-    /* padding: 0.65rem 1.5rem; */
+    /* padding: 10px 25px; */
     /* clear: both; */
     font-weight: 400;
     /* color: #293240; */
     /* text-align: inherit; */
     /* white-space: nowrap; */
-    /* background-color: transparent; */
+    background-color: blueviolet;
     /* border: 0; */
+  }
+
+  .dropdown-item span {
+    /* align-self: center; */
+    /* margin-top: 20px; */
+    /* padding-top: 20px; */
   }
 
   .dropdown-item.active, 
@@ -128,7 +136,14 @@
     background-color: #E8EAF6;
 }
 
-
+i.material-icons-two-tone {
+    background-color: #293240;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* background-color: #20be7c; */
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
 
   
 </style>
